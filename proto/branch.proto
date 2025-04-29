@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package grpcserver.proto;
+
+
+option go_package = "/proto;branch";
+
+
+service BranchService {
+  rpc CreateBranch (CreateBranchRequest) returns (CreateBranchResponse);
+  rpc GetBranch (GetBranchRequest) returns (GetBranchResponse);
+}
+
+message CreateBranchRequest {
+  string name = 1;
+  string address = 2;
+}
+
+message CreateBranchResponse {
+  string id = 1;
+  string message = 2;
+}
+
+message GetBranchRequest {
+  string id = 1;
+}
+
+message GetBranchResponse {
+  string id = 1;
+  string name = 2;
+  string address = 3;
+}
+
